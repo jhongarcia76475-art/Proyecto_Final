@@ -9,6 +9,7 @@ public class principal{
     public static void main(String[] args) {
         Scanner Lector = new Scanner(System.in);
         int opcion = 0;
+        do { 
         System.out.println("_____________________");
         System.out.println("|GESTOR DE ZAPATERIA|");
         System.out.println("_____________________\n");
@@ -20,26 +21,29 @@ public class principal{
         System.out.println("|2. REGISTRARSE   |");
         System.out.println("___________________\n");
         
-        do { 
             opcion = Lector.nextInt();
             
             if(opcion == 1){
                 System.out.println("___________________");
+                System.out.println("|  INICIAR SESION |");
+                System.out.println("___________________\n");
+                System.out.println("___________________");
                 System.out.println("|INGRESE USUARIO  |");
                 System.out.println("___________________\n");        
+                Lector.nextLine();
                 String usuario = Lector.nextLine();
-                usuario = Lector.nextLine();
                 System.out.println("____________________");
                 System.out.println("|INGRESE CONTRASEÑA|");
                 System.out.println("____________________\n");     
                 String password = Lector.nextLine();
+                opcion = iniciarSesion(usuario, password);
 
             }else if (opcion == 2) {
                 System.out.println("___________________");
                 System.out.println("|INGRESE USUARIO  |");
                 System.out.println("___________________\n");     
+                Lector.nextLine();
                 String usuario_nuevo = Lector.nextLine();
-                usuario_nuevo = Lector.nextLine();
                 registrarUsuario(usuario_nuevo, Lector);
             }else{
                 
@@ -133,6 +137,28 @@ public class principal{
 
             break;
         } 
+    }
+
+    public static int iniciarSesion(String usuario, String password) {
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("usuarios.txt"));
+            String renglon;
+
+            while ((renglon = br.readLine()) != null) {
+                // posicion 0 usuario, pocision 1 contraseña
+                String[] datos = renglon.split(",");
+                if (usuario.equals(datos[0]) && password.equals(datos[1])) { // SIN ENCRIPTAR
+                    br.close();
+                    return 1;
+                }
+            }
+            br.close();
+        } catch (Exception e) {}
+        System.out.println("_________________________________");
+        System.out.println("|USUARIO O CONTRASEÑA INCORRECTA|");
+        System.out.println("_________________________________\n"); 
+        return 0;
     }
 
     public static void registrarUsuario(String usuario_nuevo, Scanner Lector) {
