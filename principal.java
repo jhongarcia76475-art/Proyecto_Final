@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class principal{
@@ -21,26 +26,25 @@ public class principal{
             if(opcion == 1){
                 System.out.println("___________________");
                 System.out.println("|INGRESE USUARIO  |");
-                System.out.println("___________________\n");
+                System.out.println("___________________\n");        
                 String usuario = Lector.nextLine();
+                usuario = Lector.nextLine();
                 System.out.println("____________________");
                 System.out.println("|INGRESE CONTRASEÑA|");
-                System.out.println("____________________\n");
+                System.out.println("____________________\n");     
                 String password = Lector.nextLine();
 
             }else if (opcion == 2) {
                 System.out.println("___________________");
                 System.out.println("|INGRESE USUARIO  |");
-                System.out.println("___________________\n");
+                System.out.println("___________________\n");     
                 String usuario_nuevo = Lector.nextLine();
-                System.out.println("____________________");
-                System.out.println("|INGRESE CONTRASEÑA|");
-                System.out.println("____________________\n");
-                String password_nuevo = Lector.nextLine();
+                usuario_nuevo = Lector.nextLine();
+                registrarUsuario(usuario_nuevo, Lector);
             }else{
-
+                
             }
-        } while (opcion != 1 || opcion != 2);
+        } while (opcion < 1 || opcion > 2);
 
         System.out.println("          MENU DE OPCIONES              ");
         System.out.println("_______________________________________ ");
@@ -62,16 +66,15 @@ public class principal{
         opcion = Lector.nextInt();
         switch (opcion) {
             case 1:
-        System.out.println("         INGRESO DE EFECTIVO            ");
-        System.out.println("________________________________________");
-        System.out.println("|1. EFECTIVO                           |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. VENTAS                             |");
-        System.out.println("|______________________________________|");
-        int efectivo = Lector.nextInt();
+                System.out.println("         INGRESO DE EFECTIVO            ");
+                System.out.println("________________________________________");
+                System.out.println("|1. EFECTIVO                           |");
+                System.out.println("|______________________________________|");
+                System.out.println("|2. VENTAS                             |");
+                System.out.println("|______________________________________|");
+                int efectivo = Lector.nextInt();
             break;
-            default:
-            break;
+            
             case 2:
         System.out.println("         INGRESO DE REFERENCIAS         ");
         System.out.println("________________________________________");
@@ -126,7 +129,68 @@ public class principal{
         System.out.println("|______________________________________|");
         int general = Lector.nextInt();
             break;
+            default:
+
+            break;
+        } 
+    }
+
+    public static void registrarUsuario(String usuario_nuevo, Scanner Lector) {
+        do{
+
+            if (usuarioExiste(usuario_nuevo)) {
+            System.out.println("____________________________");
+            System.out.println("|ESTE USUARIO YA EXISTE    |");
+            System.out.println("____________________________");
+            System.out.println("____________________________");
+            System.out.println("|INGRESE USUARIO DIFERENTE |");
+            System.out.println("____________________________\n");     
+            usuario_nuevo = Lector.nextLine();
+            }
+
+        }while(usuarioExiste(usuario_nuevo)!=false);
+
+            System.out.println("____________________");
+            System.out.println("|INGRESE CONTRASEÑA|");
+            System.out.println("____________________\n");  
+            String password_nueva = Lector.nextLine();
+
+            try {
+                FileWriter fw = new FileWriter("usuarios.txt", true);
+                fw.write(usuario_nuevo + "," + password_nueva + "\n");
+                fw.close();
+            } catch (Exception e) {}
+    }
+
+    public static void guardar_datos(String usuario_nuevo, Scanner Lector){
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("datos.txt", true));
+
+                writer.write(usuario_nuevo);
+                writer.newLine();
+
+            writer.close();
+            Lector.close();
+
+            System.out.println("SESION INICIADA CON EXITO");
+
+        } catch (IOException e) {
+            System.out.println("Error al guardar: " + e.getMessage());
         }
-        
-}
+    }
+
+    public static boolean usuarioExiste(String u) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("usuarios.txt"));
+            String l;
+            while ((l = br.readLine()) != null) {
+                if (l.split(",")[0].equals(u)) {
+                    br.close();
+                    return true;
+                }
+            }
+            br.close();
+        } catch (IOException e) {}
+        return false;
+    }
 }
