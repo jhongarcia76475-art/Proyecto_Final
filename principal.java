@@ -219,4 +219,14 @@ public class principal{
         } catch (IOException e) {}
         return false;
     }
+    public static void noNegativos (int dato){
+        Scanner lector = new Scanner(System.in);
+        if (dato<0){
+            do{
+            System.out.println("--ESTE DATO NO ESTA PERMITIDO YA QUE ES UN NUMERO NEGATIVO--");
+            System.out.println("--vuelve a poner el dato positivo--");
+            dato = lector.nextInt();
+            }while (dato<0);
+        }
+    }
 }
