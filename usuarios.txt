@@ -1,1 +1,6 @@
 Edwin G,1234
+<<<<<<< HEAD
+=======
+Miguel T,1234
+toro,1
+>>>>>>> e0678ed5f81074e44a4a2cc2f15c81b799ef149a
