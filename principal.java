@@ -50,93 +50,95 @@ public class principal{
             }
         } while (opcion < 1 || opcion > 2);
 
-        System.out.println("          MENU DE OPCIONES              ");
-        System.out.println("_______________________________________ ");
-        System.out.println("|1. INGRESO DE EFECTIVO                |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. INGRESO DE REFERENCIAS             |");
-        System.out.println("|______________________________________|");
-        System.out.println("|3. INGRESO DE VENTAS                  |");
-        System.out.println("|______________________________________|");
-        System.out.println("|4. MOSTRAR INVENTARIO                 |");
-        System.out.println("|______________________________________|");
-        System.out.println("|5. MOSTRAR REPORTE DE VENTAS          |");
-        System.out.println("|______________________________________|");
-        System.out.println("|6. ACTUALIZAR INVENTARIO              |");
-        System.out.println("|______________________________________|");
-        System.out.println("|7. REPORTE GENERAL                    |");
-        System.out.println("|______________________________________|");
-        
-        opcion = Lector.nextInt();
-        switch (opcion) {
-            case 1:
-                System.out.println("         INGRESO DE EFECTIVO            ");
-                System.out.println("________________________________________");
-                System.out.println("|1. EFECTIVO                           |");
-                System.out.println("|______________________________________|");
-                System.out.println("|2. VENTAS                             |");
-                System.out.println("|______________________________________|");
-                int efectivo = Lector.nextInt();
-            break;
+        do { 
+            System.out.println("_______________________________________");
+            System.out.println("|         MENU DE OPCIONES             |");
+            System.out.println("|______________________________________|");
+            System.out.println("|______________________________________|");
+            System.out.println("|1. INGRESO DE REFERENCIAS             |");
+            System.out.println("|______________________________________|");
+            System.out.println("|2. INGRESO DE VENTAS                  |");
+            System.out.println("|______________________________________|");
+            System.out.println("|3. MOSTRAR INVENTARIO                 |");
+            System.out.println("|______________________________________|");
+            System.out.println("|4. MOSTRAR REPORTE DE VENTAS          |");
+            System.out.println("|______________________________________|");
+            System.out.println("|5. ACTUALIZAR INVENTARIO              |");
+            System.out.println("|______________________________________|");
+            System.out.println("|6. REPORTE GENERAL                    |");
+            System.out.println("|______________________________________|");
+            System.out.println("|7. SALIR E CERRAR SESIÓN              |");
+            System.out.println("|______________________________________|");
             
-            case 2:
-        System.out.println("         INGRESO DE REFERENCIAS         ");
-        System.out.println("________________________________________");
-        System.out.println("|1. NIKE                               |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. ADIDAS                             |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. PUMA                               |");
-        System.out.println("|______________________________________|");
-        int cantidad = Lector.nextInt();
-            break;
-            case 3:
-        System.out.println("         INGRESO DE VENTAS              ");
-        System.out.println("_______________________________________ ");
-        System.out.println("|1. VENTA                              |");
-        System.out.println("|______________________________________|");
-        int variable = Lector.nextInt();
-            break;
-            case 4:
-        System.out.println("               INVENTARIO               ");
-        System.out.println("_______________________________________ ");
-        System.out.println("|1. CANTIDAD                           |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. REFERENCIAS                        |");
-        System.out.println("|______________________________________|");
-        int referencia = Lector.nextInt();
-            break;
-            case 5:
-        System.out.println("            REPORTE DE VENTAS           ");
-        System.out.println("________________________________________");
-        System.out.println("|1. VENTAS NETAS                       |");
-        System.out.println("|______________________________________|");
-        int neto = Lector.nextInt();
-            break;
-            case 6:
-        System.out.println("      ACTUALIZACION DE INVENTARIO       ");
-        System.out.println("________________________________________");
-        System.out.println("|1. CANTIDAD                           |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. REFERENCIAS                        |");
-        System.out.println("|______________________________________|");
-        int inventario = Lector.nextInt();
-            break;
-            case 7:
-        System.out.println("            REPORTE GENERAL             ");
-        System.out.println("________________________________________");
-        System.out.println("|1. INVENTARIO                         |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. EFECTIVO                           |");
-        System.out.println("|______________________________________|");
-        System.out.println("|2. VENTAS                             |");
-        System.out.println("|______________________________________|");
-        int general = Lector.nextInt();
-            break;
-            default:
+            opcion = Lector.nextInt();
+            switch (opcion) {
+                case 1:
+            System.out.println("         INGRESO DE REFERENCIAS         ");
+            System.out.println("________________________________________");
+            System.out.println("|1. NIKE                               |");
+            System.out.println("|______________________________________|");
+            System.out.println("|2. ADIDAS                             |");
+            System.out.println("|______________________________________|");
+            System.out.println("|2. PUMA                               |");
+            System.out.println("|______________________________________|");
+            int cantidad = Lector.nextInt();
+                break;
+                case 2:
+            System.out.println("         INGRESO DE VENTAS              ");
+            System.out.println("_______________________________________ ");
+            System.out.println("|1. VENTA                              |");
+            System.out.println("|______________________________________|");
+            int variable = Lector.nextInt();
+                break;
+                case 3:
+            System.out.println("               INVENTARIO               ");
+            System.out.println("_______________________________________ ");
+            System.out.println("|1. CANTIDAD                           |");
+            System.out.println("|______________________________________|");
+            System.out.println("|2. REFERENCIAS                        |");
+            System.out.println("|______________________________________|");
+            int referencia = Lector.nextInt();
+                break;
+                case 4:
+            System.out.println("            REPORTE DE VENTAS           ");
+            System.out.println("________________________________________");
+            System.out.println("|1. VENTAS NETAS                       |");
+            System.out.println("|______________________________________|");
+            int neto = Lector.nextInt();
+                break;
+                case 5:
+            System.out.println("      ACTUALIZACION DE INVENTARIO       ");
+            System.out.println("________________________________________");
+            System.out.println("|1. CANTIDAD                           |");
+            System.out.println("|______________________________________|");
+            System.out.println("|2. REFERENCIAS                        |");
+            System.out.println("|______________________________________|");
+            int inventario = Lector.nextInt();
+                break;
+                case 6:
+            System.out.println("            REPORTE GENERAL             ");
+            System.out.println("________________________________________");
+            System.out.println("|1. INVENTARIO                         |");
+            System.out.println("|______________________________________|");
+            System.out.println("|2. EFECTIVO                           |");
+            System.out.println("|______________________________________|");
+            System.out.println("|2. VENTAS                             |");
+            System.out.println("|______________________________________|");
+            int general = Lector.nextInt();
+                break;
+                case 7:
+                    System.out.println("_______________________________________");
+                    System.out.println("|SESIÓN FINALIZADA, HASTA PRONTO.      |");
+                    System.out.println("|______________________________________|");
+                break;
+                default:
+                    System.out.println("_______________________________________");
+                    System.out.println("|           OPCIÓN INVALIDA            |");
+                    System.out.println("|______________________________________|");
+                break;
+            } 
+        } while (opcion != 7);
 
-            break;
-        } 
     }
 
     public static int iniciarSesion(String usuario, String password) {
@@ -185,7 +187,7 @@ public class principal{
                 FileWriter fw = new FileWriter("usuarios.txt", true);
                 fw.write(usuario_nuevo + "," + password_nueva + "\n");
                 fw.close();
-            } catch (Exception e) {}
+            } catch (IOException e) {}
     }
 
     public static void guardar_datos(String usuario_nuevo, Scanner Lector){
